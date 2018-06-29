@@ -21,9 +21,17 @@ from django.conf.urls import url
 #配置全局url 访问用
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',views.home),
+    # path('',views.home),
+    url(r'^$', views.home,name='home'),
     #传入一个数字或多个数 作为参数
-    url(r'^(?P<my_args>\d+)/$',views.detail,name='detail'),
+    url(r'^(?P<id>\d+)/$',views.detail,name='detail'),
+    url(r'^archives/$', views.archives, name = 'archives'),
+    url(r'^aboutme/$', views.about_me, name='about_me'),
+    url(r'^tag(?P<tag>\w+)/$', views.search_tag, name = 'search_tag'),
+
+
+
 
 
 ]
+
